@@ -1,3 +1,5 @@
+[![Android Arsenal]( https://img.shields.io/badge/Android%20Arsenal-compose--html-green.svg?style=flat )]( https://android-arsenal.com/details/1/8382 )
+
 # HtmlCompose
 
 An Android library which provides HTML support for Jetpack Compose texts.
@@ -17,7 +19,7 @@ Add to app module *gradle.build* file.
 
 ```gradle
 dependencies {
-    implementation 'com.github.ireward.compose-html:1.0.0'
+    implementation 'com.github.ireward.compose-html:1.0.1'
 }
 ```
 
