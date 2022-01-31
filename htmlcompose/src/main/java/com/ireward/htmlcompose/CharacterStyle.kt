@@ -1,4 +1,4 @@
-package com.ireward.showcase
+package com.ireward.htmlcompose
 
 import android.text.style.ForegroundColorSpan
 import android.text.style.StrikethroughSpan

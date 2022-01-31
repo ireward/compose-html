@@ -1,4 +1,4 @@
-package com.ireward.showcase
+package com.ireward.htmlcompose
 
 import android.text.style.*
 import android.widget.TextView

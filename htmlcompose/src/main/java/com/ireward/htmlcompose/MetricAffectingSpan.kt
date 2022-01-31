@@ -1,4 +1,4 @@
-package com.ireward.showcase
+package com.ireward.htmlcompose
 
 import android.graphics.Typeface
 import android.text.style.*
