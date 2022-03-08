@@ -19,7 +19,7 @@ Add to app module *gradle.build* file.
 
 ```gradle
 dependencies {
-    implementation 'com.github.ireward.compose-html:1.0.1'
+    implementation 'com.github.ireward:compose-html:1.0.2'
 }
 ```
 
