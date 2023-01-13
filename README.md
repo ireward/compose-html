@@ -54,7 +54,9 @@ fun HtmlText(
     URLSpanStyle: SpanStyle = SpanStyle(
         color = linkTextColor(),
         textDecoration = TextDecoration.Underline
-    )
+    ),
+    customSpannedHandler: ((Spanned) -> AnnotatedString)? = null,
+    useCustomSpannedHandler: Boolean = customSpannedHandler != null
 )
 ```
 
