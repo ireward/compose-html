@@ -30,6 +30,7 @@ fun HtmlText(
     maxLines: Int = Int.MAX_VALUE,
     onTextLayout: (TextLayoutResult) -> Unit = {},
     linkClicked: ((String) -> Unit)? = null,
+    onClicked: (() -> Unit)? = null,
     fontSize: TextUnit = 14.sp,
     flags: Int = HtmlCompat.FROM_HTML_MODE_COMPACT,
     URLSpanStyle: SpanStyle = SpanStyle(
@@ -52,6 +53,7 @@ fun HtmlText(
                     .getStringAnnotations(URL_TAG, it, it)
                     .firstOrNull()
                     ?.let { stringAnnotation -> linkClicked(stringAnnotation.item) }
+                    ?: onClicked?.invoke()
             }
         )
     } else {

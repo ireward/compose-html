@@ -6,10 +6,10 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.text.Html
+import android.text.method.LinkMovementMethod
 import android.view.Gravity
-import android.view.ViewGroup
-import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.Image
@@ -164,22 +164,24 @@ private fun AndroidLegacyTextView(html: String) {
     ) {
         AndroidView(
             modifier = Modifier
-                .fillMaxWidth()
                 .align(Alignment.Center)
                 .padding(10.dp),
             factory = { ctx ->
                 TextView(ctx).apply {
-                    layoutParams = LinearLayout.LayoutParams(
-                        ViewGroup.LayoutParams.MATCH_PARENT,
-                        ViewGroup.LayoutParams.WRAP_CONTENT
-                    )
-
                     gravity = Gravity.CENTER
                     setLinkTextColor(ContextCompat.getColorStateList(context, R.color.blue))
                     text = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                         Html.fromHtml(html, Html.FROM_HTML_MODE_COMPACT)
                     } else {
                         Html.fromHtml(html)
+                    }
+                    movementMethod = LinkMovementMethod.getInstance()
+                    setOnClickListener {
+                        Toast.makeText(
+                            context,
+                            context.getText(R.string.textview_link_clicked_message),
+                            Toast.LENGTH_LONG
+                        ).show()
                     }
                 }
             })
@@ -219,6 +221,13 @@ private fun HtmlTextItem(context: Context, html: String) {
                         data = Uri.parse(link)
                     }
                 )
+            },
+            onClicked = {
+                Toast.makeText(
+                    context,
+                    context.getText(R.string.html_text_clicked_message),
+                    Toast.LENGTH_LONG
+                ).show()
             },
             URLSpanStyle = SpanStyle(
                 color = colorResource(id = R.color.blue),

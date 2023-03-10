@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">HTMLText</string>
+    <string name="textview_link_clicked_message">TextView without link clicked</string>
+    <string name="html_text_clicked_message">HtmlText without link clicked</string>
 </resources>
