@@ -59,6 +59,7 @@ fun HtmlText(
             modifier = modifier,
             text = content,
             style = style,
+            fontSize = fontSize,
             softWrap = softWrap,
             overflow = overflow,
             maxLines = maxLines,
