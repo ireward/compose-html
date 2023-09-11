@@ -34,8 +34,9 @@ fun HtmlText(
     flags: Int = HtmlCompat.FROM_HTML_MODE_COMPACT,
     URLSpanStyle: SpanStyle = SpanStyle(
         color = linkTextColor(),
-        textDecoration = TextDecoration.Underline
-    )
+        textDecoration = TextDecoration.Underline,
+    ),
+    textColor: Color = Color.Black,
 ) {
     val content = text.asHTML(fontSize, flags, URLSpanStyle)
     if (linkClicked != null) {
@@ -62,22 +63,22 @@ fun HtmlText(
             softWrap = softWrap,
             overflow = overflow,
             maxLines = maxLines,
-            onTextLayout = onTextLayout
+            onTextLayout = onTextLayout,
+            color = textColor,
         )
     }
-
 }
 
 @Composable
 private fun linkTextColor() = Color(
-    TextView(LocalContext.current).linkTextColors.defaultColor
+    TextView(LocalContext.current).linkTextColors.defaultColor,
 )
 
 @Composable
 private fun String.asHTML(
     fontSize: TextUnit,
     flags: Int,
-    URLSpanStyle: SpanStyle
+    URLSpanStyle: SpanStyle,
 ) = buildAnnotatedString {
     val spanned = HtmlCompat.fromHtml(this@asHTML, flags)
     val spans = spanned.getSpans(0, spanned.length, Any::class.java)
